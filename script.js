@@ -94,11 +94,17 @@ function convert() {
   const value = parseFloat(document.getElementById("valueInput").value);
 
   if (isNaN(value)) {
-    document.getElementById("result").textContent =
-      "Please enter a valid number.";
+    document.getElementById("result").value = "Please enter a valid number.";
     return;
   }
 
   const result = tempConverter(unit, value);
-  document.getElementById("result").textContent = result;
+  document.getElementById("result").value = result;
+}
+
+function onBlurUnit() {
+  var unitInput = document.getElementById("unitInput").value;
+  if (unitInput != "c" && unitInput != "k") {
+    document.getElementById("unitInput").value = "";
+  }
 }
